@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Battleship</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <h1>Battleship</h1>
+    <div class="container">
+      <div class="p1-cont" id="p1-cont">
+        <form action="" id="player-1-form">
+          <p class="player-header">Player 1</p>
+          <div class="player-name-container">
+            <label for="player-1-name">Player Name:</label>
+            <input
+              type="text"
+              id="player-1-name"
+              placeholder="Enter your name..."
+            />
+          </div>
+          <div class="player-ship-placements-container">
+            <label for="player-1-ship-placements">Ship coordinates:</label>
+            <input
+              type="text"
+              id="player-1-ship-placements"
+              placeholder="Enter your ship placements..."
+            />
+          </div>
+          <button
+            type="submit"
+            class="submit-btn"
+            id="player-1-info-submit-btn"
+          >
+            Next
+          </button>
+        </form>
+      </div>
+
+      <div class="p2-cont" id="p2-cont">
+        <form action="" id="player-2-form">
+          <p class="player-header">Player 2</p>
+          <div class="player-name-container">
+            <label for="player-2-name">Player 2 Name:</label>
+            <input
+              type="text"
+              id="player-2-name"
+              placeholder="Enter your name..."
+            />
+          </div>
+          <div class="player-ship-placements-container">
+            <label for="player-2-ship-placements">Ship coordinates:</label>
+            <input
+              type="text"
+              id="player-2-ship-placements"
+              placeholder="Enter your ship placements..."
+            />
+          </div>
+          <button type="submit" class="submit-btn" id="player-info-submit-btn">
+            Next
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div id="player-turn" class="player-turn">Player turn</div>
+
+    <div class="grids-container" id="grid">
+      <div class="table-container1">
+        <p>Your Grid</p>
+        <table class="grid" id="own-grid">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">A</th>
+              <th scope="col">B</th>
+              <th scope="col">C</th>
+              <th scope="col">D</th>
+              <th scope="col">E</th>
+              <th scope="col">F</th>
+              <th scope="col">G</th>
+              <th scope="col">H</th>
+              <th scope="col">I</th>
+              <th scope="col">J</th>
+            </tr>
+          </thead>
+          <tr>
+            <th scope="row">1</th>
+            <td id="A1"></td>
+            <td id="B1"></td>
+            <td id="C1"></td>
+            <td id="D1"></td>
+            <td id="E1"></td>
+            <td id="F1"></td>
+            <td id="G1"></td>
+            <td id="H1"></td>
+            <td id="I1"></td>
+            <td id="J1"></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td id="A2"></td>
+            <td id="B2"></td>
+            <td id="C2"></td>
+            <td id="D2"></td>
+            <td id="E2"></td>
+            <td id="F2"></td>
+            <td id="G2"></td>
+            <td id="H2"></td>
+            <td id="I2"></td>
+            <td id="J2"></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td id="A3"></td>
+            <td id="B3"></td>
+            <td id="C3"></td>
+            <td id="D3"></td>
+            <td id="E3"></td>
+            <td id="F3"></td>
+            <td id="G3"></td>
+            <td id="H3"></td>
+            <td id="I3"></td>
+            <td id="J3"></td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td id="A4"></td>
+            <td id="B4"></td>
+            <td id="C4"></td>
+            <td id="D4"></td>
+            <td id="E4"></td>
+            <td id="F4"></td>
+            <td id="G4"></td>
+            <td id="H4"></td>
+            <td id="I4"></td>
+            <td id="J4"></td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td id="A5"></td>
+            <td id="B5"></td>
+            <td id="C5"></td>
+            <td id="D5"></td>
+            <td id="E5"></td>
+            <td id="F5"></td>
+            <td id="G5"></td>
+            <td id="H5"></td>
+            <td id="I5"></td>
+            <td id="J5"></td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td id="A6"></td>
+            <td id="B6"></td>
+            <td id="C6"></td>
+            <td id="D6"></td>
+            <td id="E6"></td>
+            <td id="F6"></td>
+            <td id="G6"></td>
+            <td id="H6"></td>
+            <td id="I6"></td>
+            <td id="J6"></td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td id="A7"></td>
+            <td id="B7"></td>
+            <td id="C7"></td>
+            <td id="D7"></td>
+            <td id="E7"></td>
+            <td id="F7"></td>
+            <td id="G7"></td>
+            <td id="H7"></td>
+            <td id="I7"></td>
+            <td id="J7"></td>
+          </tr>
+          <tr>
+            <th scope="row">8</th>
+            <td id="A8"></td>
+            <td id="B8"></td>
+            <td id="C8"></td>
+            <td id="D8"></td>
+            <td id="E8"></td>
+            <td id="F8"></td>
+            <td id="G8"></td>
+            <td id="H8"></td>
+            <td id="I8"></td>
+            <td id="J8"></td>
+          </tr>
+          <tr>
+            <th scope="row">9</th>
+            <td id="A9"></td>
+            <td id="B9"></td>
+            <td id="C9"></td>
+            <td id="D9"></td>
+            <td id="E9"></td>
+            <td id="F9"></td>
+            <td id="G9"></td>
+            <td id="H9"></td>
+            <td id="I9"></td>
+            <td id="J9"></td>
+          </tr>
+          <tr>
+            <th scope="row">10</th>
+            <td id="A10"></td>
+            <td id="B10"></td>
+            <td id="C10"></td>
+            <td id="D10"></td>
+            <td id="E10"></td>
+            <td id="F10"></td>
+            <td id="G10"></td>
+            <td id="H10"></td>
+            <td id="I10"></td>
+            <td id="J10"></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="table-container2">
+        <p>Target Grid</p>
+        <table class="grid" id="target-grid">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">A</th>
+              <th scope="col">B</th>
+              <th scope="col">C</th>
+              <th scope="col">D</th>
+              <th scope="col">E</th>
+              <th scope="col">F</th>
+              <th scope="col">G</th>
+              <th scope="col">H</th>
+              <th scope="col">I</th>
+              <th scope="col">J</th>
+            </tr>
+          </thead>
+          <tr>
+            <th scope="row">1</th>
+            <td class="A1"></td>
+            <td class="B1"></td>
+            <td class="C1"></td>
+            <td class="D1"></td>
+            <td class="E1"></td>
+            <td class="F1"></td>
+            <td class="G1"></td>
+            <td class="H1"></td>
+            <td class="I1"></td>
+            <td class="J1"></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td class="A2"></td>
+            <td class="B2"></td>
+            <td class="C2"></td>
+            <td class="D2"></td>
+            <td class="E2"></td>
+            <td class="F2"></td>
+            <td class="G2"></td>
+            <td class="H2"></td>
+            <td class="I2"></td>
+            <td class="J2"></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td class="A3"></td>
+            <td class="B3"></td>
+            <td class="C3"></td>
+            <td class="D3"></td>
+            <td class="E3"></td>
+            <td class="F3"></td>
+            <td class="G3"></td>
+            <td class="H3"></td>
+            <td class="I3"></td>
+            <td class="J3"></td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td class="A4"></td>
+            <td class="B4"></td>
+            <td class="C4"></td>
+            <td class="D4"></td>
+            <td class="E4"></td>
+            <td class="F4"></td>
+            <td class="G4"></td>
+            <td class="H4"></td>
+            <td class="I4"></td>
+            <td class="J4"></td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td class="A5"></td>
+            <td class="B5"></td>
+            <td class="C5"></td>
+            <td class="D5"></td>
+            <td class="E5"></td>
+            <td class="F5"></td>
+            <td class="G5"></td>
+            <td class="H5"></td>
+            <td class="I5"></td>
+            <td class="J5"></td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td class="A6"></td>
+            <td class="B6"></td>
+            <td class="C6"></td>
+            <td class="D6"></td>
+            <td class="E6"></td>
+            <td class="F6"></td>
+            <td class="G6"></td>
+            <td class="H6"></td>
+            <td class="I6"></td>
+            <td class="J6"></td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td class="A7"></td>
+            <td class="B7"></td>
+            <td class="C7"></td>
+            <td class="D7"></td>
+            <td class="E7"></td>
+            <td class="F7"></td>
+            <td class="G7"></td>
+            <td class="H7"></td>
+            <td class="I7"></td>
+            <td class="J7"></td>
+          </tr>
+          <tr>
+            <th scope="row">8</th>
+            <td class="A8"></td>
+            <td class="B8"></td>
+            <td class="C8"></td>
+            <td class="D8"></td>
+            <td class="E8"></td>
+            <td class="F8"></td>
+            <td class="G8"></td>
+            <td class="H8"></td>
+            <td class="I8"></td>
+            <td class="J8"></td>
+          </tr>
+          <tr>
+            <th scope="row">9</th>
+            <td class="A9"></td>
+            <td class="B9"></td>
+            <td class="C9"></td>
+            <td class="D9"></td>
+            <td class="E9"></td>
+            <td class="F9"></td>
+            <td class="G9"></td>
+            <td class="H9"></td>
+            <td class="I9"></td>
+            <td class="J9"></td>
+          </tr>
+          <tr>
+            <th scope="row">10</th>
+            <td class="A10"></td>
+            <td class="B10"></td>
+            <td class="C10"></td>
+            <td class="D10"></td>
+            <td class="E10"></td>
+            <td class="F10"></td>
+            <td class="G10"></td>
+            <td class="H10"></td>
+            <td class="I10"></td>
+            <td class="J10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="modal" class="modal">
+      <div id="modal-content" class="modal-content">
+        <p id="modal-txt">PlaceHolderText</p>
+        <button id="modal-btn" class="modal-btn">OK</button>
+      </div>
+    </div>
+  </body>
+</html>
